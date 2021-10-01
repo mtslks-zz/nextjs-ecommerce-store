@@ -8,7 +8,7 @@ export default function Contact() {
         <title>Contact us</title>
       </Head>
       <div>You can find us at:</div>
-      <div>Musterstraße 31, 1180 Vienna, Austria</div>
+      <div>Slow Down Adventures, Abenteuerstraße 88, 1010 Vienna, Austria</div>
     </Layout>
   );
 }

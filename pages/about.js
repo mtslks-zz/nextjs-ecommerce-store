@@ -5,7 +5,7 @@ export default function About() {
   return (
     <Layout>
       <Head>
-        <title>Who is Roll On Bicycles</title>
+        <title>About Slow Down Adventures</title>
       </Head>
       <div>Who are we?</div>
     </Layout>

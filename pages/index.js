@@ -14,8 +14,9 @@ export default function Home() {
           content="Next.js E-Commerce Project UpLeveled Bootcamp"
         />
         <link rel="icon" href="/favicon.ico" />
+        <h1>Slow Down Adventures</h1>
+        <h3>Bike your adventure</h3>
       </Head>
-      <h1>Roll On Bicycles</h1>
     </Layout>
   );
 }
