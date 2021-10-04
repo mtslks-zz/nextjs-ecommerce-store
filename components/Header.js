@@ -16,12 +16,14 @@ const navBar = css`
   text-transform: uppercase;
   border-bottom: 2px dotted #062a06;
   list-style-type: none;
+  text-decoration: none;
 `;
 
 const navWrapper = css`
   display: flex;
   justify-content: space-around;
   width: 100vw;
+  text-decoration: none;
 `;
 
 export default function Header() {

@@ -3,11 +3,12 @@ import Link from 'next/link';
 
 const footerStyles = css`
   display: flex;
+  align-items: center;
   gap: 5px;
   background-color: beige;
   width: 100vw;
   padding: 10px;
-  height: 5vh;
+  height: 10vh;
   justify-content: space-around;
 `;
 
