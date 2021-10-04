@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Layout from '../components/Layout';
+import Layout from '../../components/Layout';
 
 export default function Products() {
   return (
@@ -7,15 +7,7 @@ export default function Products() {
       <Head>
         <title>Products</title>
       </Head>
-      <div>Choose your product here</div>
-      <div>
-
-<table>
-  <tbody>
-    </tbody>
-</table>
-
-      </div>
+      <div>Product Overview</div>
     </Layout>
   );
 }

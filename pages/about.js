@@ -5,9 +5,9 @@ export default function About() {
   return (
     <Layout>
       <Head>
-        <title>About Slow Down Adventures</title>
+        <title>About Us</title>
       </Head>
-      <div>Who are we?</div>
+      <div>Who is Adventurize Me</div>
     </Layout>
   );
 }
