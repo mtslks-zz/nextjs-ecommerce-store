@@ -7,6 +7,10 @@ export default function Product(props) {
   // const router = useRouter();
   // const { product } = router.query;
 
+  if (typeof window !== 'undefined') {
+    console.log(window.localStorage);
+  }
+
   return (
     <Layout>
       <Head>
