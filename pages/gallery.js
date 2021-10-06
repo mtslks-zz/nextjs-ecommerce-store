@@ -1,15 +1,16 @@
 import Head from 'next/head';
 import Layout from '../components/Layout';
 
-export default function About() {
+export default function Gallery() {
   return (
     <Layout>
       <Head>
-        <title>What is bikepacking?</title>
+        <title>Gallery</title>
       </Head>
       <div>
-        <h1>What is bikepacking?</h1>
+        <h1>Impressions</h1>
       </div>
+      <div>Simple table with some pictures</div>
     </Layout>
   );
 }

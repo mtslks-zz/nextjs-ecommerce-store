@@ -2,6 +2,7 @@ import { css } from '@emotion/react';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useState } from 'react';
 import Layout from '../../components/Layout';
 import SearchBar from '../../components/Searchbar';
 import ShoppingcartButton from '../../public/images/symbols/shoppingcart_add.png';
@@ -70,33 +71,42 @@ export default function Products(props) {
           <div css={contentGrid}>
             {props.products.map((product) => {
               return (
-                <div key={`product-li-${product.id}`}>
-                  <a href={`/products/${product.id}`}>
-                    <Image
-                      alt={product.name}
-                      src={product.img}
-                      width="400"
-                      height="290"
-                    />
-                  </a>
-                  <Link href={`/products/${product.id}`}>
-                    <a
-                      css={css`
-                        font-weight: bold;
-                      `}
-                    >
-                      {product.name}
+                <div
+                  key={`product-li-${product.id}`}
+                  css={css`
+                    background-color: #ecf6ff;
+                    border-radius: 10px;
+                    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+                  `}
+                >
+                  <div>
+                    <a href={`/products/${product.id}`}>
+                      <Image
+                        alt={product.name}
+                        src={product.img}
+                        width="400"
+                        height="290"
+                      />
                     </a>
-                  </Link>
-                  <a>
-                    Price: {product.price.amount} {product.price.currency}
-                  </a>
-                  <Image
-                    src={ShoppingcartButton}
-                    alt="Shopping cart symbol add"
-                    height="25px"
-                    width="25px"
-                  />
+                    <Link href={`/products/${product.id}`}>
+                      <a
+                        css={css`
+                          font-weight: bold;
+                        `}
+                      >
+                        {product.name}
+                      </a>
+                    </Link>
+                    <a>
+                      Price: {product.price.amount} {product.price.currency}
+                    </a>
+                    <Image
+                      src={ShoppingcartButton}
+                      alt="Shopping cart symbol add"
+                      height="25px"
+                      width="25px"
+                    />
+                  </div>
                 </div>
               );
             })}

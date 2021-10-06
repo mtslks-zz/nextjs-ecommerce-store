@@ -11,6 +11,7 @@ const navBar = css`
   align-items: center;
   height: 8vh;
   width: 100vw;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
   background: rgb(2, 0, 36);
   background: linear-gradient(
     90deg,
@@ -29,8 +30,6 @@ const navBar = css`
     box-sizing: border-box;
     list-style-type: none;
     justify-content: flex;
-  }
-  a {
     color: white;
     text-decoration: none;
   }
@@ -72,26 +71,36 @@ export default function Header() {
             </li>
             <li>
               <Link href="/products">
-                <a>Products</a>
+                <a>Online Shop</a>
               </Link>
             </li>
             <li>
-              <Link href="/bikepacking">
-                <a>Bikepacking FAQ</a>
-              </Link>
+              <a
+                href="https://bikepacking.com/plog/what-is-bikepacking/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                What is bikepacking?
+              </a>
             </li>
 
+            <li>
+              <Link href="/gallery">
+                <a>Gallery</a>
+              </Link>
+            </li>
             <li>
               <a>Items in cart ( ) </a>
             </li>
             <li>
-              <Image
-                src={Shoppingcart}
-                alt="Shopping cart symbol"
-                height="40px"
-                width="40px"
-                color="white"
-              />
+              <a href="../cartPage">
+                <Image
+                  src={Shoppingcart}
+                  alt="Shopping cart symbol"
+                  height="40px"
+                  width="40px"
+                />
+              </a>
             </li>
           </ul>
         </nav>

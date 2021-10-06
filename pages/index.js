@@ -9,7 +9,7 @@ export default function Home() {
     <Layout>
       {' '}
       <Head>
-        <title>Adventurize Me - Onlineshop</title>
+        <title>Welcome to Slow Down Adventures</title>
         <meta
           name="description"
           content="Next.js E-Commerce Project UpLeveled Bootcamp"

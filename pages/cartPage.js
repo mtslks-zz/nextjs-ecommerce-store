@@ -7,7 +7,10 @@ export default function Shoppingcart() {
       <Head>
         <title>Shopping cart</title>
       </Head>
-      <div>Here, the items should pop up</div>
+      <div>
+        <h1>SHOPPING CART</h1>
+        Here, the items should pop up
+      </div>
     </Layout>
   );
 }

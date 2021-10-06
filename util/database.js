@@ -23,7 +23,7 @@ export const products = [
   },
   {
     id: '3',
-    name: 'Gravel Bike - Ultra Titanium',
+    name: 'Allroad Bike - Ultra Titanium',
     desc: 'The Ultra is our ultimate endurance machine to eat mile after mile!',
     price: {
       currency: 'EUR',

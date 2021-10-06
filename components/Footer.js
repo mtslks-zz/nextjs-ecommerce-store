@@ -7,6 +7,8 @@ const footerStyles = css`
   align-items: center;
   height: 8vh;
   width: 100vw;
+  border-bottom: 10px solid white;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
   background: rgb(2, 0, 36);
   background: linear-gradient(
     90deg,
@@ -15,7 +17,6 @@ const footerStyles = css`
     rgba(3, 98, 207, 1) 67%,
     rgba(0, 119, 255, 0.4948354341736695) 100%
   );
-  text-transform: uppercase;
   list-style-type: none;
   justify-content: space-around;
 
@@ -25,8 +26,8 @@ const footerStyles = css`
     box-sizing: border-box;
     list-style-type: none;
     justify-content: flex;
-  }
-  a {
+    font-size: 14px;
+    text-transform: uppercase;
     color: white;
     text-decoration: none;
   }
@@ -54,10 +55,6 @@ export default function Footer() {
       <Link href="/">
         <a>Contact</a>
       </Link>
-      <Link href="/visitus">
-        <a>Visit Us</a>
-      </Link>
-      <p />
       <a>© 2021 Mathias Lukas - All Rights Reserved</a>
     </footer>
   );
