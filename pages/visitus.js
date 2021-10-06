@@ -5,10 +5,12 @@ export default function Contact() {
   return (
     <Layout>
       <Head>
-        <title>Contact us</title>
+        <title>Visit us</title>
       </Head>
-      <div>You can find us at:</div>
-      <div>Slow Down Adventures, Abenteuerstraße 88, 1010 Vienna, Austria</div>
+      <div>
+        <h1>You can find us at:</h1>
+      </div>
+      <div>Slow Down Adventures, Markhofgasse 19, 1030 Vienna, Austria</div>
     </Layout>
   );
 }

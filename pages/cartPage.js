@@ -1,13 +1,13 @@
 import Head from 'next/head';
 import Layout from '../components/Layout';
 
-export default function About() {
+export default function Shoppingcart() {
   return (
     <Layout>
       <Head>
-        <title>About Us</title>
+        <title>Shopping cart</title>
       </Head>
-      <div>Who is Adventurize Me</div>
+      <div>Here, the items should pop up</div>
     </Layout>
   );
 }

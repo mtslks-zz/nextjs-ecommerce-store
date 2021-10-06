@@ -3,33 +3,62 @@ import Link from 'next/link';
 
 const footerStyles = css`
   display: flex;
+  box-sizing: border-box;
   align-items: center;
-  gap: 5px;
-  background-color: beige;
+  height: 8vh;
   width: 100vw;
-  padding: 10px;
-  height: 10vh;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 59, 121, 1) 28%,
+    rgba(3, 98, 207, 1) 67%,
+    rgba(0, 119, 255, 0.4948354341736695) 100%
+  );
+  text-transform: uppercase;
+  list-style-type: none;
   justify-content: space-around;
+
+  a {
+    display: flex;
+    text-decoration: none;
+    box-sizing: border-box;
+    list-style-type: none;
+    justify-content: flex;
+  }
+  a {
+    color: white;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #dbdbdb;
+    text-decoration: none;
+    cursor: pointer;
+  }
 `;
 
 export default function Footer() {
   return (
     <footer css={footerStyles}>
       <Link href="/">
-        <a>Imprint</a>
+        <a>Terms & Conditions</a>
+      </Link>
+
+      <Link href="/">
+        <a>Payment & Shipping</a>
       </Link>
       <Link href="/">
-        <a>Terms & Conditions</a>
+        <a>Imprint</a>
       </Link>
       <Link href="/">
         <a>Contact</a>
       </Link>
-      <Link href="/">
-        <a>Careers</a>
+      <Link href="/visitus">
+        <a>Visit Us</a>
       </Link>
-      <Link href="/">
-        <a>Legal</a>
-      </Link>
+      <p />
+      <a>© 2021 Mathias Lukas - All Rights Reserved</a>
     </footer>
   );
 }

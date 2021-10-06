@@ -1,6 +1,15 @@
+import { css } from '@emotion/react';
 import Head from 'next/head';
+import Image from 'next/image';
 // import { useRouter } from 'next/router';
 import Layout from '../../components/Layout';
+
+const singleProductStyle = css`
+  font-size: 18px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+`;
 
 export default function Product(props) {
   // useRouter function to get information directly from URL
@@ -10,14 +19,38 @@ export default function Product(props) {
   if (typeof window !== 'undefined') {
     console.log(window.localStorage);
   }
-
   return (
     <Layout>
       <Head>
-        <title>Single Product Page</title>
+        <title>Buy {props.singleProduct.name}</title>
       </Head>
-      <div>Product page {props.singleProduct.name}</div>
-      <div>Price: {props.singleProduct.price}</div>
+      <div css={singleProductStyle}>
+        <div>{props.singleProduct.name}</div>
+        <p />
+        <div>{props.singleProduct.desc}</div>
+        <p />
+        <div>
+          Price: {props.singleProduct.price.amount}{' '}
+          {props.singleProduct.price.currency}{' '}
+        </div>
+        <div>
+          {' '}
+          <Image
+            alt={props.singleProduct.name}
+            src={props.singleProduct.img}
+            width={400}
+            height={290}
+          />
+        </div>
+      </div>
+      <button
+        onClick={() => {
+          console.log('added to cart');
+        }}
+      >
+        Add to cart ({props.singleProduct.price.amount}{' '}
+        {props.singleProduct.price.currency} per item)
+      </button>
     </Layout>
   );
 }

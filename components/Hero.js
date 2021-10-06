@@ -15,9 +15,7 @@ export default function Hero() {
         <Image src={Heroimage} alt="Hero image" />
       </div>
       <div>
-        <h1>
-          Welcome to Eternal Cycling - Your #1 Bikepacking Equipment Source
-        </h1>
+        <h1>SLOW DOWN ADVENTURES - Your #1 Bikepacking Source</h1>
       </div>
     </div>
   );
