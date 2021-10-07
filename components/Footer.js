@@ -7,7 +7,6 @@ const footerStyles = css`
   align-items: center;
   height: 8vh;
   width: 100vw;
-  border-bottom: 10px solid white;
   box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
   background: rgb(2, 0, 36);
   background: linear-gradient(

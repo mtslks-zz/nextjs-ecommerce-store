@@ -5,17 +5,29 @@ import Heroimage from '../public/images/photos/hero_background.jpg';
 
 const heroStyles = css`
   display: flex;
-  padding: 20px;
+  box-sizing: border-box;
+  align-items: center;
+  border-radius: 10px;
+  flex-direction: column;
+  padding-left: 20px;
+  padding-right: 20px;
 `;
 
 export default function Hero() {
   return (
-    <div>
-      <div css={heroStyles}>
-        <Image src={Heroimage} alt="Hero image" />
-      </div>
+    <div css={heroStyles}>
       <div>
-        <h1>SLOW DOWN ADVENTURES - Your #1 Bikepacking Source</h1>
+        <Image src={Heroimage} alt="Bike with luggage" />
+      </div>
+
+      <h1>SLOW DOWN ADVENTURES - Your #1 Bikepacking Source</h1>
+
+      <div>
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+        eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+        voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+        clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
+        amet.
       </div>
     </div>
   );

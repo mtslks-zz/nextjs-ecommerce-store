@@ -1,6 +1,7 @@
 import { css } from '@emotion/react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useCart } from 'react-use-cart';
 import Logo from '../public/images/symbols/bikelogo.png';
 import Logotext from '../public/images/symbols/logotext.png';
 import Shoppingcart from '../public/images/symbols/shoppingcart.png';
@@ -31,7 +32,6 @@ const navBar = css`
     list-style-type: none;
     justify-content: flex;
     color: white;
-    text-decoration: none;
   }
 
   a:hover {
@@ -48,7 +48,14 @@ const navWrapper = css`
   align-items: center;
 `;
 
+/* const socialIcons = css`
+  display: flex;
+  align-items: center;
+`; */
+
 export default function Header() {
+  const { totalItems, cartTotal } = useCart();
+
   return (
     <header>
       <div css={navWrapper}>
@@ -58,7 +65,7 @@ export default function Header() {
           </a>
         </Link>
         <a>
-          <Image src={Logotext} alt="Logo" width="520" height="80" />
+          <Image src={Logotext} alt="Logo" width="580" height="80" />
         </a>
       </div>
       <div>
@@ -90,16 +97,15 @@ export default function Header() {
               </Link>
             </li>
             <li>
-              <a>Items in cart ( ) </a>
-            </li>
-            <li>
-              <a href="../cartPage">
+              <a href="../cart">
                 <Image
                   src={Shoppingcart}
                   alt="Shopping cart symbol"
                   height="40px"
                   width="40px"
                 />
+                <a>{totalItems} item(s) in cart</a>
+                <a>Total {cartTotal}€</a>
               </a>
             </li>
           </ul>
