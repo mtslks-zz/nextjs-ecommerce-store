@@ -124,11 +124,11 @@ export async function getServerSideProps(context) {
   console.log(products);
   console.log(addItem);
 
-  const addedProducts = products.map((singleProduct) => {
+  const addedProducts = products.map((product) => {
     return {
-      ...singleProduct,
+      ...product,
       addItem: addItem.some((id) => {
-        return Number(singleProduct.id) === id;
+        return Number(product.id) === id;
       }),
     };
   });

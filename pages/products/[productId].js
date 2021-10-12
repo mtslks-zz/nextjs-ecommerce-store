@@ -32,7 +32,7 @@ export default function Product(props) {
 
   function clickHandler() {
     // 1.  check current state of cookie
-    const currentCookie = getParsedCookie('addItem');
+    const currentCookie = getParsedCookie('addItem') || [];
     // [5,7]
     const isProductAdded = currentCookie.some((id) => {
       return id === Number(props.singleProduct.id);
