@@ -1,9 +1,12 @@
 import { css } from '@emotion/react';
+import { get } from 'http';
+import Cookies from 'js-cookie';
 import Head from 'next/head';
 import Image from 'next/image';
-import { useCart } from 'react-use-cart';
-// import { useRouter } from 'next/router';
+import { useRouter } from 'next/router';
+import { useState } from 'react';
 import Layout from '../../components/Layout';
+import { getParsedCookie, setParsedCookie } from '../../util/cookies';
 
 export const singleProductContainer = css`
   width: 50vw;
@@ -14,6 +17,7 @@ export const singleProductContainer = css`
   padding: 10px;
   margin-bottom: 20px;
   margin-left: 20px;
+  display: flex;
 `;
 const singleProductStyle = css`
   font-size: 18px;
@@ -24,11 +28,30 @@ const singleProductStyle = css`
 `;
 
 export default function Product(props) {
-  // useRouter function to get information directly from URL
-  // const router = useRouter();
-  // const { product } = router.query;
+  const [addItem, setAddItem] = useState(getParsedCookie('addItem') || []);
 
-  const { addItem } = useCart();
+  function clickHandler() {
+    // 1.  check current state of cookie
+    const currentCookie = getParsedCookie('addItem');
+    // [5,7]
+    const isProductAdded = currentCookie.some((id) => {
+      return id === Number(props.singleProduct.id);
+    });
+    let newCookie;
+    if (isProductAdded) {
+      // remove product
+      newCookie = currentCookie.filter(
+        (id) => id !== Number(props.singleProduct.id),
+      );
+    } else {
+      // add product
+      newCookie = [...currentCookie, Number(props.singleProduct.id)];
+    }
+    // 2.  needs to update state of the cookie (add if it's not there, remove if it's there)
+    setParsedCookie('addItem', newCookie);
+    // 3.  needs to update state
+    setAddItem(newCookie);
+  }
 
   if (typeof window !== 'undefined') {
     console.log(window.localStorage);
@@ -40,7 +63,11 @@ export default function Product(props) {
       </Head>
       <div css={singleProductContainer}>
         <div css={singleProductStyle}>
-          <div>{props.singleProduct.name}</div>
+          <div>
+            <strong>
+              <em>{props.singleProduct.name}</em>
+            </strong>
+          </div>
           <p />
           <div>{props.singleProduct.desc}</div>
           <p />
@@ -55,20 +82,17 @@ export default function Product(props) {
               src={props.singleProduct.img}
               width={400}
               height={290}
+              css={css`
+                border-radius: 10px;
+              `}
             />
           </div>
         </div>
         <div>
-          <button
-            onClick={() =>
-              addItem({
-                name: props.singleProduct.name,
-                id: props.singleProduct.id,
-                price: props.singleProduct.price.amount,
-              })
-            }
-          >
-            Add to cart
+          <button onClick={clickHandler}>
+            {addItem.some((id) => Number(props.singleProduct.id) === id)
+              ? 'Added to cart'
+              : 'Add to cart'}
           </button>
         </div>
       </div>

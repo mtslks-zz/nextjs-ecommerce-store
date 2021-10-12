@@ -1,12 +1,18 @@
-import css from '@emotion/react';
+import { css } from '@emotion/react';
 import Head from 'next/head';
 import Link from 'next/link';
-import { useCart } from 'react-use-cart';
 import Layout from '../components/Layout';
 
-export default function Cart() {
-  const { items, emptyCart, cartTotal } = useCart();
+const cartStyle = css`
+  display: grid;
+  grid-template-columns: 1fr 3fr 3fr;
+  border-bottom: 1px solid black;
+  padding: 10px;
+  align-items: left;
+`;
 
+export default function Cart() {
+  const cartTotal = 1;
   return (
     <Layout>
       <Head>
@@ -22,8 +28,8 @@ export default function Cart() {
         </div>
       ) : (
         <>
-          <div>
-            <h1>Shopping cart</h1>
+          <h1>Shopping cart</h1>
+          <div css={cartStyle}>
             {items.map((item) => {
               return (
                 <div key={item.id}>
@@ -36,9 +42,12 @@ export default function Cart() {
             })}
           </div>
           <div>
-            <button onClick={emptyCart}>Empty cart</button>
+            Total Amount: <strong>{cartTotal}€</strong>
+          </div>{' '}
+          <div>
+            <button onClick={emptyCart}>Empty cart</button>{' '}
+            <button>Checkout</button>
           </div>
-          <div>Total Amount: {cartTotal}€</div>{' '}
         </>
       )}
     </Layout>

@@ -1,6 +1,7 @@
 import { css } from '@emotion/react';
 import Image from 'next/image';
 import Link from 'next/link';
+import Typed from 'react-typed';
 import Heroimage from '../public/images/photos/hero_background.jpg';
 
 const heroStyles = css`
@@ -11,23 +12,41 @@ const heroStyles = css`
   flex-direction: column;
   padding-left: 20px;
   padding-right: 20px;
+  padding-bottom: 20px;
 `;
 
 export default function Hero() {
   return (
-    <div css={heroStyles}>
+    <div>
       <div>
-        <Image src={Heroimage} alt="Bike with luggage" />
+        <h1 css={heroStyles}>
+          <Typed
+            strings={[
+              'Slow Down Adventures - Your #1 Source For Gear',
+              'Slow Down Adventures - Your #1 Source For Bikes',
+              'Slow Down Adventures - Online Shop',
+            ]}
+            typeSpeed={40}
+            backSpeed={70}
+            loop
+            smartBackspace
+            shuffle={false}
+            backDelay={1}
+            fadeOut={false}
+            fadeOutDelay={100}
+            loopCount={1}
+            showCursor
+            cursorChar=" >>"
+          />
+        </h1>
       </div>
 
-      <h1>SLOW DOWN ADVENTURES - Your #1 Bikepacking Source</h1>
-
-      <div>
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-        eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-        voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
-        clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
-        amet.
+      <div css={heroStyles}>
+        <div>
+          <Link passHref href="/products" cursor="pointer">
+            <Image src={Heroimage} alt="Bike with luggage" />
+          </Link>
+        </div>
       </div>
     </div>
   );

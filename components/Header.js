@@ -1,7 +1,6 @@
 import { css } from '@emotion/react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useCart } from 'react-use-cart';
 import Logo from '../public/images/symbols/bikelogo.png';
 import Logotext from '../public/images/symbols/logotext.png';
 import Shoppingcart from '../public/images/symbols/shoppingcart.png';
@@ -10,7 +9,7 @@ const navBar = css`
   display: flex;
   box-sizing: border-box;
   align-items: center;
-  height: 8vh;
+  height: 7vh;
   width: 100vw;
   box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
   background: rgb(2, 0, 36);
@@ -54,8 +53,6 @@ const navWrapper = css`
 `; */
 
 export default function Header() {
-  const { totalItems, cartTotal } = useCart();
-
   return (
     <header>
       <div css={navWrapper}>
@@ -104,8 +101,6 @@ export default function Header() {
                   height="40px"
                   width="40px"
                 />
-                <a>{totalItems} item(s) in cart</a>
-                <a>Total {cartTotal}€</a>
               </a>
             </li>
           </ul>

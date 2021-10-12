@@ -5,7 +5,7 @@ const footerStyles = css`
   display: flex;
   box-sizing: border-box;
   align-items: center;
-  height: 8vh;
+  height: 7vh;
   width: 100vw;
   box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
   background: rgb(2, 0, 36);
@@ -25,10 +25,7 @@ const footerStyles = css`
     box-sizing: border-box;
     list-style-type: none;
     justify-content: flex;
-    font-size: 14px;
-    text-transform: uppercase;
     color: white;
-    text-decoration: none;
   }
 
   a:hover {
@@ -54,7 +51,7 @@ export default function Footer() {
       <Link href="/">
         <a>Contact</a>
       </Link>
-      <a>© 2021 Mathias Lukas - All Rights Reserved</a>
+      <a>© 2021 Mathias Lukas</a>
     </footer>
   );
 }

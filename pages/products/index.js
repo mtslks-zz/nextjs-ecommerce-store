@@ -2,7 +2,6 @@ import { css } from '@emotion/react';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
-import { CartProvider, useCart } from 'react-use-cart';
 import Layout from '../../components/Layout';
 import ShoppingcartButton from '../../public/images/symbols/shoppingcart_add.png';
 
@@ -81,6 +80,9 @@ export default function Products(props) {
                         src={product.img}
                         width="400"
                         height="290"
+                        css={css`
+                          border-radius: 10px;
+                        `}
                       />
                     </a>
                     <Link href={`/products/${product.id}`}>
@@ -97,12 +99,11 @@ export default function Products(props) {
                     </a>
                   </div>
                   <div>
-                    <Image
-                      src={ShoppingcartButton}
-                      alt="Shopping cart symbol add"
-                      height="25px"
-                      width="25px"
-                    />
+                    {product.addItem ? (
+                      'Added to your cart'
+                    ) : (
+                      <button>Add to cart</button>
+                    )}
                   </div>
                 </div>
               );
@@ -114,11 +115,28 @@ export default function Products(props) {
   );
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps(context) {
   const { products } = await import('../../util/database');
+
+  const cookies = context.req.cookies.addItem || '[]';
+  const addItem = JSON.parse(cookies);
+
+  console.log(products);
+  console.log(addItem);
+
+  const addedProducts = products.map((singleProduct) => {
+    return {
+      ...singleProduct,
+      addItem: addItem.some((id) => {
+        return Number(singleProduct.id) === id;
+      }),
+    };
+  });
+
+  console.log(addedProducts);
   return {
     props: {
-      products,
+      products: addedProducts,
     },
   };
 }
