@@ -50,16 +50,6 @@ export default function Products(props) {
           <div css={productHeader}>
             <h2>Our Products</h2>
             Please choose from our wide range of bikepacking equipment below.
-            <p />
-            Click the{' '}
-            <Image
-              src={ShoppingcartButton}
-              alt="Shopping cart symbol"
-              height="20px"
-              width="20px"
-            />{' '}
-            symbol to add 1 single item of the product to your shopping cart.
-            <p />
             Contact us at{' '}
             <a href="mailto:info@slowdownadventures.com">
               info@slowdownadventures.com
@@ -77,7 +67,7 @@ export default function Products(props) {
                     <a href={`/products/${product.id}`}>
                       <Image
                         alt={product.name}
-                        src={product.img}
+                        src={`/images/products/${product.image}`}
                         width="400"
                         height="290"
                         css={css`
@@ -94,16 +84,13 @@ export default function Products(props) {
                         {product.name}
                       </a>
                     </Link>
-                    <a>
-                      Price: {product.price.amount} {product.price.currency}
-                    </a>
+                    <a>Price: {product.price}€</a>
                   </div>
                   <div>
-                    {product.addItem ? (
-                      'Added to your cart'
-                    ) : (
-                      <button>Add to cart</button>
-                    )}
+                    {/*  {product.addItem
+                      ? 'Product is in your cart'
+                      : 'Product is not in your cart'}
+                   */}
                   </div>
                 </div>
               );
@@ -115,28 +102,14 @@ export default function Products(props) {
   );
 }
 
-export async function getServerSideProps(context) {
-  const { products } = await import('../../util/database');
+export async function getServerSideProps() {
+  const { getProducts } = await import('../../util/database');
 
-  const cookies = context.req.cookies.addItem || '[]';
-  const addItem = JSON.parse(cookies);
+  const products = await getProducts();
 
-  console.log(products);
-  console.log(addItem);
-
-  const addedProducts = products.map((product) => {
-    return {
-      ...product,
-      addItem: addItem.some((id) => {
-        return Number(product.id) === id;
-      }),
-    };
-  });
-
-  console.log(addedProducts);
   return {
     props: {
-      products: addedProducts,
+      products,
     },
   };
 }

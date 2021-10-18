@@ -2,6 +2,7 @@ import { css } from '@emotion/react';
 import Head from 'next/head';
 import Link from 'next/link';
 import Layout from '../components/Layout';
+import { getParsedCookie, setParsedCookie } from '../util/cookies';
 
 const cartStyle = css`
   display: grid;
