@@ -1,6 +1,4 @@
-import { css } from '@emotion/react';
 import Head from 'next/head';
-import { useState } from 'react';
 import Hero from '../components/Hero';
 import Layout from '../components/Layout';
 

@@ -1,5 +1,4 @@
 import { css } from '@emotion/react';
-import Cookies from 'js-cookie';
 import Head from 'next/head';
 import Image from 'next/image';
 import { useState } from 'react';

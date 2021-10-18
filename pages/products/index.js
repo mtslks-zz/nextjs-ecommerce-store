@@ -3,7 +3,6 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import Layout from '../../components/Layout';
-import ShoppingcartButton from '../../public/images/symbols/shoppingcart_add.png';
 
 const singleProductContainer = css`
   background-color: #ecf6ff;
